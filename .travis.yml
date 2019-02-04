@@ -1,18 +1,19 @@
 language: java
-
-env:
-  global:
-    - secure: "VZDcofpi2pccKHjBy4XMnq8jQRYsijQ0WZCfLeolK/OOA2ugzB1RIs7a8MTMfnyrPc9QnTX3i9zv0ZmVgX7VrURF4LWmIhwIyLQNSFZWqJ9xd39qZkQpwLQbFGJsBVX2drQk/JSHLy/G5hr1Da3+PdcS55i3gf1QhybsF9am6U3DL8CP2qA+Ful9r26Ra49ZznGEZa1fp2EQmCdCkbET0dbxakLZht0I6VCU3xZAt08hO4JxguhWAKLTevWqrnmajlvDdQmCORZnWZaiHx2wE9K4GpxfWA7vDJ9b0yVRZmPP6HlxQDwa4FmbpytEDIveL/qpqiwZt024pJlEwTanxKbOor3L+vLVb5x8ZJdLlJ00YfN6gf7h96M3Dl9wbPeCap1ujPu+fvM5V+UDUGUFsApcyqpGC5gX5X7BMOpJRqEUMZd/PnzK42qawZi3o3jq90Pe2Tkwezu0B+PNYNj6MkkdobrYBX1MXVB0NfFYsHGXibzNgcA2n9Z6swlC8Y+Gzwoku53X5ILMQvPFQduJOc2jXUDioxnaTdVnfBkQ5JFAzmWmVnB3otjLADiNLNzX/yS/PsGx/mPeBwZ5nFPZdVh/FpVAb9gFiCRh4TMQZAoHy7wD3g4ybvGOppNvr+wVikRjW6uBthh6x/M2hr4K+rmRXQaR5T7t8fz7zWhfFx8="
-
 jdk:
-  - oraclejdk8
-  
+  - openjdk11
 cache:
   directories:
-  - $HOME/.m2
-  
-install: 
-  - mvn clean install -DskipTests=true -Dmaven.javadoc.skip=true
-  
+    - $HOME/.m2
+
+before_install:
+  - git clone https://github.com/lorislab/travis-configuration.git .scripts
+  - find .scripts -type f -iname "*.sh" -exec chmod +x {} \;
+
+install: ./.scripts/maven/install.sh
+
+script:
+  - ./.scripts/maven/build.sh
+  - ./.scripts/maven/deploy.sh
+
 after_success:
-  - mvn test jacoco:report coveralls:report -DrepoToken=$COVERALLS_TOKEN
+  - ./.scripts/maven/after_success.sh
