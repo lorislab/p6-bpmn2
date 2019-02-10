@@ -664,9 +664,9 @@
 		</xsl:for-each>
 		<xsl:for-each
 			select="flowElements[contains(@xmi:type, 'Event') or contains(@xsi:type, 'Event')]">
-			<bpmn:event>
+			<bpmn:org.lorislab.p6.flow.model.event>
 				<xsl:call-template name="EventTemplate" />
-			</bpmn:event>
+			</bpmn:org.lorislab.p6.flow.model.event>
 		</xsl:for-each>
 		<xsl:for-each
 			select="flowElements[contains(@xmi:type, 'EventBasedGateway') or contains(@xsi:type, 'EventBasedGateway')]">
@@ -2219,10 +2219,10 @@
 		</xsl:for-each>
 
 
-		<xsl:for-each select="event">
-			<bpmn:event>
+		<xsl:for-each select="org.lorislab.p6.flow.model.event">
+			<bpmn:org.lorislab.p6.flow.model.event>
 				<xsl:call-template name="ImplicitThrowEventTemplate" />
-			</bpmn:event>
+			</bpmn:org.lorislab.p6.flow.model.event>
 		</xsl:for-each>
 
 	</xsl:template>

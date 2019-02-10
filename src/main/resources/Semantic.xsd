@@ -4,7 +4,7 @@
 	xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
 	targetNamespace="http://www.omg.org/spec/BPMN/20100524/MODEL">
 	
-	<xsd:element name="activity" type="tActivity"/>
+	<xsd:element name="org.lorislab.p6.flow.model.activity" type="tActivity"/>
 	<xsd:complexType name="tActivity" abstract="true">
 		<xsd:complexContent>
 			<xsd:extension base="tFlowNode">
@@ -302,7 +302,7 @@
 			<xsd:extension base="tBaseElement">
 				<xsd:sequence>
 					<xsd:element name="condition" type="tFormalExpression" minOccurs="1" maxOccurs="1"/>
-					<xsd:element name="event" type="tImplicitThrowEvent" minOccurs="0" maxOccurs="1"/>
+					<xsd:element name="org.lorislab.p6.flow.model.event" type="tImplicitThrowEvent" minOccurs="0" maxOccurs="1"/>
 				</xsd:sequence>
 			</xsd:extension>
 		</xsd:complexContent>
@@ -616,7 +616,7 @@
 		</xsd:complexContent>
 	</xsd:complexType>
 
-	<xsd:element name="event" type="tEvent" substitutionGroup="flowElement"/>
+	<xsd:element name="org.lorislab.p6.flow.model.event" type="tEvent" substitutionGroup="flowElement"/>
 	<xsd:complexType name="tEvent" abstract="true">
 		<xsd:complexContent>
 			<xsd:extension base="tFlowNode">
@@ -719,7 +719,7 @@
 		</xsd:complexContent>
 	</xsd:complexType>
 
-	<xsd:element name="gateway" type="tGateway" abstract="true"/>
+	<xsd:element name="org.lorislab.p6.flow.model.gateway" type="tGateway" abstract="true"/>
 	<xsd:complexType name="tGateway">
 		<xsd:complexContent>
 			<xsd:extension base="tFlowNode">

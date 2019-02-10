@@ -3,7 +3,7 @@
 
     <groupId>org.lorislab.p6</groupId>
     <artifactId>p6-bpmn2</artifactId>
-    <version>1.1.0-SNAPSHOT</version>
+    <version>1.1.1-SNAPSHOT</version>
     <packaging>jar</packaging>    
     <name>p6-bpmn2</name>
         
@@ -37,9 +37,9 @@
 
     <dependencies>
         <dependency>
-            <groupId>javax.xml.bind</groupId>
-            <artifactId>jaxb-api</artifactId>
-            <version>2.3.1</version>
+            <groupId>jakarta.xml.bind</groupId>
+            <artifactId>jakarta.xml.bind-api</artifactId>
+            <version>2.3.2</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>
@@ -119,7 +119,7 @@
                 <plugins>
                     <plugin>
                         <groupId>org.jvnet.jaxb2.maven2</groupId>
-                        <artifactId>maven-jaxb22-plugin</artifactId>
+                        <artifactId>maven-jaxb2-plugin</artifactId>
                         <version>0.14.0</version>
                         <executions>
                             <execution>
@@ -129,14 +129,14 @@
                             </execution>
                         </executions>
                         <configuration>
-                            <schemaDirectory>src/main/resources/xsd</schemaDirectory>
                             <extension>true</extension>
                             <generatePackage>org.lorislab.p6.bpmn2</generatePackage>
                             <generateDirectory>src/main/java</generateDirectory>
                             <episode>false</episode>
-                            <specVersion>2.2</specVersion>
+                            <addIfExistsToEpisodeSchemaBindings>false</addIfExistsToEpisodeSchemaBindings>
+                            <specVersion>2.3</specVersion>
                             <removeOldOutput>true</removeOldOutput>       
-                            <cleanPackageDirectories>true</cleanPackageDirectories>               
+                            <cleanPackageDirectories>true</cleanPackageDirectories>
                         </configuration>   
                     </plugin>           
                 </plugins>

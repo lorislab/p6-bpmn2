@@ -620,7 +620,7 @@
 				<xsl:call-template name="EndEventTemplate" />
 			</flowElements>
 		</xsl:for-each>
-		<xsl:for-each select="bpmn:event">
+		<xsl:for-each select="bpmn:org.lorislab.p6.flow.model.event">
 			<flowElements xmi:type="bpmnxmi:Event">
 				<xsl:call-template name="EventTemplate" />
 			</flowElements>
@@ -2020,10 +2020,10 @@
 				<xsl:call-template name="FormalExpressionTemplate" />
 			</condition>
 		</xsl:for-each>
-		<xsl:for-each select="bpmn:event">
-			<event xmi:type="bpmnxmi:ImplicitThrowEvent">
+		<xsl:for-each select="bpmn:org.lorislab.p6.flow.model.event">
+			<org.lorislab.p6.flow.model.event xmi:type="bpmnxmi:ImplicitThrowEvent">
 				<xsl:call-template name="ImplicitThrowEventTemplate" />
-			</event>
+			</org.lorislab.p6.flow.model.event>
 		</xsl:for-each>
 	</xsl:template>
 
